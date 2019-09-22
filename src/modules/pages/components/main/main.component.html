@@ -1,12 +1,5 @@
 <div class="main">
 	<div class="main__dogs">
-		<div
-			class="main__dogs__hint d-flex justify-content--center"
-			[class.main__dogs__hint--visible]="frames[currentIndex]?.isTextVisible">
-			<span [innerHTML]="frames[currentIndex]?.text"></span>
-		</div>
-		<div
-			class="main__dogs__image"
-			[class.main__dogs__image--visible]="frames[currentIndex]?.isImageVisible"></div>
+		<dogs-main></dogs-main>
 	</div>
 </div>

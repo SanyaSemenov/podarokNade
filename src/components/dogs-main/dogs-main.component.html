@@ -1,0 +1,9 @@
+<div
+	class="dogs__popup__text d-flex justify-content--center"
+	[class.dogs__popup__text--visible]="frames[currentIndex]?.isTextVisible">
+	<span [innerHTML]="frames[currentIndex]?.text"></span>
+</div>
+<div
+	*ngIf="frames && currentIndex"
+	class="dogs__popup__image"
+	[class.dogs__popup__image--visible]="frames[currentIndex]?.isImageVisible"></div>
