@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PopupFrame } from './popup-frame';
 
 export class FramesComponent implements OnInit {
-	constructor(frames: PopupFrame[]) {
-		this.frames = frames;
-	}
+	constructor() { }
 
 	public frames: PopupFrame[];
 	private _currentIndex: number = 0;
