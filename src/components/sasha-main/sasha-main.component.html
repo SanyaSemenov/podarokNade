@@ -1,6 +1,6 @@
-<popup [isVisible]="frames[currentIndex]?.isTextVisible"
-	[text]="frames[currentIndex]?.text"
+<popup [isVisible]="framesCollection.currentFrame?.isTextVisible"
+	[text]="framesCollection.currentFrame?.text"
 	[isUpsideDown]="isMobile">
 	<div class="sasha__popup__image"
-		[class.sasha__popup__image--visible]="frames[currentIndex]?.isImageVisible"></div>
+		[class.sasha__popup__image--visible]="framesCollection.currentFrame?.isImageVisible"></div>
 </popup>

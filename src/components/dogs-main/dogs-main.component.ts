@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FramesComponent, PopupFrame } from 'src/lib/frames';
+import { FramesComponent, PopupFramesCollection } from 'src/lib/frames';
 
 @Component({
 	selector: 'dogs-main',
@@ -11,7 +11,7 @@ export class DogsMainComponent extends FramesComponent implements OnInit {
 		super();
 	}
 
-	@Input() public frames: PopupFrame[];
+	@Input() public framesCollection: PopupFramesCollection;
 
 	ngOnInit() {
 		super.ngOnInit();

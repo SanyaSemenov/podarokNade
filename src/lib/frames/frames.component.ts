@@ -1,28 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { PopupFrame } from './popup-frame';
+import { OnInit } from '@angular/core';
+import { PopupFramesCollection } from './models';
 
 export class FramesComponent implements OnInit {
 	constructor() { }
 
-	public frames: PopupFrame[];
-	private _currentIndex: number = 0;
-	public set currentIndex(value: number) {
-		this._currentIndex = value;
-		this.switchFrame();
-	}
-	public get currentIndex(): number {
-		return this._currentIndex;
-	}
-
+	public framesCollection: PopupFramesCollection;
 	public ngOnInit() {
-		this.switchFrame();
-	}
-
-	private switchFrame() {
-		if (!this.frames[this._currentIndex + 1]) {
-			return;
-		}
-		const interval = this.frames[this._currentIndex].nextFrameInterval;
-		setTimeout(() => this.currentIndex++, interval);
+		this.framesCollection.init();
 	}
 }

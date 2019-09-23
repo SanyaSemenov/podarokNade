@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PopupFrame, FramesComponent } from 'src/lib/frames';
+import { FramesComponent, PopupFramesCollection } from 'src/lib/frames';
 
 @Component({
 	selector: 'sasha-main',
@@ -11,7 +11,7 @@ export class SashaMainComponent extends FramesComponent implements OnInit {
 		super();
 	}
 
-	@Input() public frames: PopupFrame[];
+	@Input() public framesCollection: PopupFramesCollection;
 	@Input() public isMobile: boolean = false;
 
 	ngOnInit() {

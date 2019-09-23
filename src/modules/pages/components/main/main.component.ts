@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PopupFrame } from 'src/lib/frames';
+import { PopupFrame, PopupFramesCollection } from 'src/lib/frames';
 import { fromEvent } from 'rxjs';
 import { takeUntil, throttleTime } from 'rxjs/operators';
 import { Unsubscriber } from 'src/lib/unsubscribe';
@@ -22,7 +22,7 @@ export class MainComponent extends Unsubscriber implements OnInit {
 		super();
 	}
 
-	public dogsFrames: PopupFrame[] = [
+	public dogsFrames: PopupFramesCollection = new PopupFramesCollection([
 		new PopupFrame(false, false, 5000),
 		new PopupFrame(false, true, 2000, hello),
 		new PopupFrame(true, true, 5000, hello),
@@ -34,17 +34,17 @@ export class MainComponent extends Unsubscriber implements OnInit {
 		new PopupFrame(true, true, 5000, sashaHopes),
 		new PopupFrame(false, true, 1000, sashaHopes),
 		new PopupFrame(true, true, 1000, best)
-	];
+	]);
 
 	public isSashaMobile: boolean = false;
 	private readonly sashaText = 'Любить сюда';
-	public sashaFrames: PopupFrame[] = [
+	public sashaFrames: PopupFramesCollection = new PopupFramesCollection([
 		new PopupFrame(false, false, 19000),
 		new PopupFrame(false, true, 1000, this.sashaText),
 		new PopupFrame(true, true, 5000, this.sashaText),
 		new PopupFrame(false, true, 1000, this.sashaText),
 		new PopupFrame(false, false, 0)
-	];
+	]);
 
 	public ngOnInit() {
 		//   this.switchFrame();

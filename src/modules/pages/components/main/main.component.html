@@ -1,8 +1,11 @@
 <div class="main">
+	<div class="main__content">
+		<ng-container></ng-container>
+	</div>
 	<div class="main__sasha">
-		<sasha-main [frames]="sashaFrames" [isMobile]="isSashaMobile"></sasha-main>
+		<sasha-main [framesCollection]="sashaFrames" [isMobile]="isSashaMobile"></sasha-main>
 	</div>
 	<div class="main__dogs">
-		<dogs-main [frames]="dogsFrames"></dogs-main>
+		<dogs-main [framesCollection]="dogsFrames"></dogs-main>
 	</div>
 </div>
