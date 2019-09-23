@@ -11,6 +11,27 @@
 		margin-bottom: 0;
 	}
 
+	&__sasha {
+		position: fixed;
+		top: 0;
+		transform: rotate(180deg);
+		right: 0;
+		width: 30%;
+
+		@media @bp-tablet-up {
+			top: initial;
+			transform: none;
+			right: initial;
+			width: 20%;
+			bottom: 0;
+			left: 0;
+		}
+
+		@media @bp-desktop-up {
+			width: 15%;
+		}
+	}
+
 	&__dogs {
 		position: fixed;
 		bottom: 0;
@@ -28,63 +49,6 @@
 			width: 30%;
 			left: initial;
 			right: 50px;
-		}
-
-		&__image {
-			background: @dogs_main top/cover no-repeat;
-			width: 100%;
-			padding-bottom: 0;
-			opacity: 0;
-			transition: all 1s ease-in-out;
-
-			&--visible {
-				opacity: 1;
-				padding-bottom: @img-h/@img-w*100%;
-			}
-		}
-
-		&__hint {
-			padding-bottom: 10px;
-			transition: all 0.5s ease-in-out;
-			transform: translateY(10px);
-			visibility: hidden;
-			opacity: 0;
-
-			&--visible {
-				transform: translateY(0);
-				visibility: visible;
-				opacity: 1;
-			}
-
-			span {
-				display: inline-block;
-				padding: 5px 10px;
-				border-radius: 10px;
-				border: 1px solid;
-				background: #fff;
-				position: relative;
-
-				&::after,
-				&::before {
-					content: '';
-					position: absolute;
-					width: 40px;
-					height: 15px;
-					top: 100%;
-					left: 50%;
-					transform: translateX(-50%);
-					border-left: 20px solid transparent;
-					border-right: 20px solid transparent;
-					border-top: 15px solid #000;
-				}
-
-				&::after {
-					border-left-width: 18.5px;
-					border-right-width: 18.5px;
-					border-top: 13.5px solid #fff;
-					width: 37px;
-				}
-			}
 		}
 	}
 }

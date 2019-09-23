@@ -15,6 +15,25 @@
 		opacity: 1;
 	}
 
+	&--upsideDown {
+		transform: rotate(180deg);
+		&.popup {
+			span {
+				&::after,
+				&::before {
+					bottom: 100%;
+					top: initial;
+					border-top: none;
+					border-bottom: 15px solid #000;
+				}
+
+				&::after {
+					border-bottom: 13.5px solid #fff;
+				}
+			}
+		}
+	}
+
 	&--Top {
 		span {
 			&::after,

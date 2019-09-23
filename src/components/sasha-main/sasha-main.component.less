@@ -1,0 +1,23 @@
+@import 'images';
+
+@img-w: 423;
+@img-h: 524;
+
+:host {
+	display: block;
+}
+
+.sasha__popup {
+	&__image {
+		background: @sasha_main top/cover no-repeat;
+		width: 100%;
+		padding-bottom: 0;
+		opacity: 0;
+		transition: all 1s ease-in-out;
+
+		&--visible {
+			opacity: 1;
+			padding-bottom: @img-h/@img-w*100%;
+		}
+	}
+}
