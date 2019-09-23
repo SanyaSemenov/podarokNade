@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { PopupAlign } from './popup-align';
 
 @Component({
-  selector: 'app-popup',
-  templateUrl: './popup.component.html',
-  styleUrls: ['./popup.component.less']
+	selector: 'popup',
+	templateUrl: './popup.component.html',
+	styleUrls: ['./popup.component.less']
 })
-export class PopupComponent implements OnInit {
+export class PopupComponent {
+	constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+	@Input() public isVisible: boolean = false;
+	@Input() public text: string;
+	@Input() public alignment: PopupAlign = PopupAlign.Top;
 }

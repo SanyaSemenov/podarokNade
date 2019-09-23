@@ -21,7 +21,7 @@ export class DogsMainComponent extends FramesComponent implements OnInit {
 
 	public frames: PopupFrame[] = [
 		new PopupFrame(false, false, 5000),
-		new PopupFrame(false, true, 2000),
+		new PopupFrame(false, true, 2000, hello),
 		new PopupFrame(true, true, 5000, hello),
 		new PopupFrame(false, true, 1000, hello),
 		new PopupFrame(true, true, 5000, congrads),

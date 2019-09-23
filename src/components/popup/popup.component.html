@@ -1,1 +1,8 @@
-<p>popup works!</p>
+<div class="popup__wrapper popup__wrapper--{{alignment}}">
+	<div *ngIf="text"
+		class="popup popup--{{alignment}} d-flex justify-content--center"
+		[class.popup--visible]="isVisible">
+		<span [innerHTML]="text"></span>
+	</div>
+	<ng-content></ng-content>
+</div>
