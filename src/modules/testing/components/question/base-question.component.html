@@ -10,7 +10,7 @@
 				</div>
 				<mat-card-content>
 					<mat-radio-group class="example-radio-group"
-						(change)="onAnswer.emit($event)">
+						(change)="onAnswer.emit($event.value)">
 						<mat-radio-button class="question__radio"
 							*ngFor="let variant of question?.variants"
 							[value]="variant">

@@ -17,9 +17,15 @@ export class TestingContainerComponent implements OnInit {
 				rightAnswer: 'Nice',
 				img: 'https://sun9-48.userapi.com/c855216/v855216133/fc076/_J7IrFY0Hww.jpg',
 				variants: ['Nice', 'Awful']
+			}),
+			new QuestionEntity({
+				question: 'How was your day[2]?',
+				rightAnswer: 'Nice',
+				img: 'https://sun9-48.userapi.com/c855216/v855216133/fc076/_J7IrFY0Hww.jpg',
+				variants: ['Nice', 'Awful']
 			})
 		],
-		new Date(),
+		new Date(new Date().getTime() - 1000 * 60 * 60),
 		{
 			title: 'Congradulations!',
 			type: SuccessActionType.Text,
@@ -33,5 +39,13 @@ export class TestingContainerComponent implements OnInit {
 
 	public setAnswer(value: string) {
 		this.answer = value;
+	}
+
+	public checkAnswer() {
+		if (!this.questionnaire) {
+			return;
+		}
+		this.questionnaire.checkAnswer(this.answer);
+		this.answer = null;
 	}
 }
