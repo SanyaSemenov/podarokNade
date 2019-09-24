@@ -1,9 +1,16 @@
 <div class="main">
-	<div class="main__content">
-		<ng-container></ng-container>
+	<div
+		class="main__content">
+		<h4
+			class="main__content__text"
+			[class.main__content__text--visible]="dogsFrames.currentIndex > 10">
+			Ждем...
+		</h4>
 	</div>
 	<div class="main__sasha">
-		<sasha-main [framesCollection]="sashaFrames" [isMobile]="isSashaMobile"></sasha-main>
+		<sasha-main
+			[framesCollection]="sashaFrames"
+			[isMobile]="isSashaMobile"></sasha-main>
 	</div>
 	<div class="main__dogs">
 		<dogs-main [framesCollection]="dogsFrames"></dogs-main>
