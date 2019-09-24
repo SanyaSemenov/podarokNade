@@ -1,0 +1,37 @@
+{
+	"id": 2,
+	"title": "Title2",
+	"questions": [
+        {
+            "question": "Is it the second questionnaire?",
+            "rightAnswer": "Yes",
+            "variants": [
+                "Yes",
+                "No"
+            ]
+		},
+		{
+            "question": "Is it the second questionnaire?[2]",
+            "rightAnswer": "Yes",
+            "variants": [
+                "Yes",
+                "No"
+            ]
+		},
+		{
+            "question": "Is it the second questionnaire?[3]",
+            "rightAnswer": "Yes",
+            "variants": [
+                "Yes",
+                "No"
+            ]
+        }
+	],
+	"date": "2019-09-24T20:05:28.282Z",
+    "successAction": {
+        "title": "Congradulations!",
+        "type": "Text",
+		"target": "You have successfully passed the test![2]",
+		"img": "https://sun9-48.userapi.com/c855216/v855216133/fc076/_J7IrFY0Hww.jpg"
+    }
+}

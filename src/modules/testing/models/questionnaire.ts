@@ -1,20 +1,40 @@
-import { QuestionEntity } from './question-entity';
+import { QuestionEntity, IQuestionEntity } from './question-entity';
 import { QuestionnaireStatus } from './questionnaire-status';
 import { SuccessAction } from './success-action';
 import { Subject } from 'rxjs';
 import { TestingService } from '../services';
 
-export class Questionnaire {
+export interface IQuestionnaire {
+	id: number;
+	title: string;
+	questions: IQuestionEntity[];
+	date: Date;
+	successAction: SuccessAction;
+}
+
+export interface IQuestionnaireFull {
+	id: number;
+	title: string;
+	questions: IQuestionEntity[];
+	date: Date;
+	successAction: SuccessAction;
+	status: QuestionnaireStatus;
+	currentIndex: number;
+	onSuccess: Subject<SuccessAction>;
+	currentAnswer: IQuestionEntity;
+	hasNext: boolean;
+	checkAnswer: (answer: any) => void;
+}
+
+export class Questionnaire implements IQuestionnaireFull {
 	constructor(
-		questions: Array<QuestionEntity>,
-		date: Date,
-		successAction: SuccessAction,
+		obj: IQuestionnaire,
 		public testing$: TestingService
 	) {
-		this.questions = questions;
-		this.date = date;
-		this.successAction = successAction;
+		Object.assign(this, obj);
 	}
+	public id: number;
+	public title: string;
 	public questions: Array<QuestionEntity>;
 	public date: Date;
 	public successAction: SuccessAction;

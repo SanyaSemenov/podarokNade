@@ -1,0 +1,31 @@
+{
+	"id": 1,
+	"title": "Title",
+	"questions": [
+        {
+            "question": "How was your day?",
+            "rightAnswer": "Nice",
+            "img": "https://sun9-48.userapi.com/c855216/v855216133/fc076/_J7IrFY0Hww.jpg",
+            "variants": [
+                "Nice",
+                "Awful"
+            ]
+        },
+        {
+            "question": "How was your day[2]?",
+            "rightAnswer": "Nice",
+            "img": "https://sun9-48.userapi.com/c855216/v855216133/fc076/_J7IrFY0Hww.jpg",
+            "variants": [
+                "Nice",
+                "Awful"
+            ]
+        }
+	],
+	"date": "2019-09-24T18:05:28.282Z",
+    "successAction": {
+        "title": "Congradulations!",
+        "type": "Text",
+		"target": "You have successfully passed the test!",
+		"img": "https://sun9-48.userapi.com/c855216/v855216133/fc076/_J7IrFY0Hww.jpg"
+    }
+}

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SuccessAction } from '../models';
+import { SuccessAction, QuestionnaireStatus } from '../models';
 
 @Injectable()
 export class TestingService {
@@ -8,6 +8,7 @@ export class TestingService {
 	private readonly _success_action_key = '_success_action_key';
 	private readonly _questionnaire_index_key = '_questionnaire_index_key';
 	private readonly _questionnaire_last_date = '_questionnaire_last_date';
+	private readonly _questionnaire_status = '_questionnaire_status';
 
 	public set successResult(action: SuccessAction) {
 		this.setItem(this._success_action_key, JSON.stringify(action));
@@ -18,17 +19,31 @@ export class TestingService {
 		return JSON.parse(fromStorage) as SuccessAction;
 	}
 
-	public set index(value: number) {
+	public set id(value: number) {
 		this.setItem(this._questionnaire_index_key, value.toString());
 	}
 
-	public get index(): number {
+	public get id(): number {
 		const fromStorage = this.getItem(this._questionnaire_index_key);
 		return fromStorage && +fromStorage ? +fromStorage : 0;
 	}
 
 	public set questionnaireDate(value: Date) {
-		this.setItem(this._questionnaire_index_key, value.toString());
+		this.setItem(this._questionnaire_last_date, value.toISOString());
+	}
+
+	public get questionnaireDate(): Date {
+		const fromStorage = this.getItem(this._questionnaire_last_date);
+		return fromStorage ? new Date(fromStorage) : new Date();
+	}
+
+	public set status(value: QuestionnaireStatus) {
+		this.setItem(this._questionnaire_status, value.toString());
+	}
+
+	public get status(): QuestionnaireStatus {
+		const fromStorage = this.getItem(this._questionnaire_status);
+		return fromStorage ? fromStorage as QuestionnaireStatus : QuestionnaireStatus.Untouched;
 	}
 
 	private setItem(key: string, value: string) {
