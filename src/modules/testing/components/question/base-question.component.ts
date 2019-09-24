@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { QuestionEntity } from '../../models';
 
 @Component({
-  selector: 'app-base-question',
-  templateUrl: './base-question.component.html',
-  styleUrls: ['./base-question.component.less']
+	selector: 'question',
+	templateUrl: './base-question.component.html',
+	styleUrls: ['./base-question.component.less']
 })
 export class BaseQuestionComponent implements OnInit {
+	constructor() {}
 
-  constructor() { }
+	@Input() public question: QuestionEntity;
 
-  ngOnInit() {
-  }
+	ngOnInit() {}
 
+	public onChange(event) {
+		console.log(event);
+	}
 }

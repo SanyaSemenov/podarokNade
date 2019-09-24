@@ -1,1 +1,4 @@
-<p>testing-container works!</p>
+<question [question]="questionnaire?.currentAnswer">
+	<button mat-button
+		mat-raised-button (click)="questionnaire?.checkAnswer()">LIKE</button>
+</question>
