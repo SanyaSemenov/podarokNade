@@ -1,4 +1,4 @@
-<question [question]="questionnaire?.currentAnswer">
+<question [question]="questionnaire?.currentAnswer" (onAnswer)="setAnswer($event)">
 	<button mat-button
-		mat-raised-button (click)="questionnaire?.checkAnswer()">LIKE</button>
+		mat-raised-button (click)="questionnaire?.checkAnswer(answer)">LIKE</button>
 </question>

@@ -27,6 +27,11 @@ export class TestingContainerComponent implements OnInit {
 		},
 		this.testing$
 	);
+	public answer: string;
 
 	ngOnInit() {}
+
+	public setAnswer(value: string) {
+		this.answer = value;
+	}
 }
