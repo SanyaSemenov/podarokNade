@@ -80,6 +80,7 @@ export class TestingService {
 	private getData(id: number): IQuestionnaire {
 		return require(`../data/questionnaire${id}.json`);
 		// TODO: handle unexisting files;
+		// TODO: handle passed
 	}
 
 	private processDataIntoQuestionnaire(data: IQuestionnaire): Questionnaire {
@@ -90,7 +91,7 @@ export class TestingService {
 			{
 				id: data.id,
 				title: data.title,
-				date: data.date,
+				date: new Date(data.date),
 				successAction: data.successAction,
 				questions: data.questions.map(x => new QuestionEntity(x))
 			},
