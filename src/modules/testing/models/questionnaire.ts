@@ -27,10 +27,7 @@ export interface IQuestionnaireFull {
 }
 
 export class Questionnaire implements IQuestionnaireFull {
-	constructor(
-		obj: IQuestionnaire,
-		public testing$: TestingService
-	) {
+	constructor(obj: IQuestionnaire, public testing$: TestingService) {
 		Object.assign(this, obj);
 	}
 	public id: number;
@@ -55,7 +52,10 @@ export class Questionnaire implements IQuestionnaireFull {
 	}
 
 	public get hasNext(): boolean {
-		return !!this.questions[this.currentIndex + 1];
+		return (
+			this.questions[this.currentIndex] &&
+			!!this.questions[this.currentIndex + 1]
+		);
 	}
 
 	public checkAnswer(answer) {
@@ -64,10 +64,12 @@ export class Questionnaire implements IQuestionnaireFull {
 			return;
 		}
 		if (this.hasNext) {
+			this.testing$.status = this.status = QuestionnaireStatus.InProgress;
 			this.currentIndex++;
 		} else {
 			this.testing$.successResult = this.successAction;
-			this.onSuccess.next(this.successAction);
+			this.testing$.status = this.status = QuestionnaireStatus.Passed;
+			// this.onSuccess.next(this.successAction);
 		}
 	}
 }
