@@ -21,7 +21,7 @@ export interface IQuestionnaireFull {
 	status: QuestionnaireStatus;
 	currentIndex: number;
 	onSuccess: Subject<SuccessAction>;
-	currentAnswer: IQuestionEntity;
+	currentQuestion: IQuestionEntity;
 	hasNext: boolean;
 	checkAnswer: (answer: any) => void;
 }
@@ -40,7 +40,7 @@ export class Questionnaire implements IQuestionnaireFull {
 	public currentIndex: number = 0;
 	public onSuccess = new Subject<SuccessAction>();
 
-	public get currentAnswer(): QuestionEntity {
+	public get currentQuestion(): QuestionEntity {
 		if (
 			typeof this.currentIndex === 'undefined' ||
 			this.currentIndex === null ||
@@ -69,7 +69,7 @@ export class Questionnaire implements IQuestionnaireFull {
 		} else {
 			this.testing$.successResult = this.successAction;
 			this.testing$.status = this.status = QuestionnaireStatus.Passed;
-			// this.onSuccess.next(this.successAction);
+			this.onSuccess.next(this.successAction);
 		}
 	}
 }

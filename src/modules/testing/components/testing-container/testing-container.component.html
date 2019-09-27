@@ -1,4 +1,8 @@
-<question [question]="questionnaire?.currentAnswer" (onAnswer)="setAnswer($event)">
-	<button mat-button
-		mat-raised-button (click)="checkAnswer()">LIKE</button>
-</question>
+<ng-container *ngIf="questionnaire?.currentQuestion && !isTestHidden">
+	<question [question]="questionnaire?.currentQuestion"
+		(onAnswer)="setAnswer($event)" (onCheck)="checkAnswer()">
+	</question>
+</ng-container>
+<ng-container *ngIf="isTestHidden">
+
+</ng-container>

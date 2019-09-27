@@ -11,6 +11,14 @@ export class BaseQuestionComponent implements OnInit {
 
 	@Input() public question: QuestionEntity;
 	@Output() public onAnswer = new EventEmitter<string>();
+	@Output() public onCheck = new EventEmitter<void>();
+
+	public answer: string;
 
 	ngOnInit() {}
+
+	public check() {
+		this.answer = null;
+		this.onCheck.emit();
+	}
 }

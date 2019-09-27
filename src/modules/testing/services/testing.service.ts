@@ -13,6 +13,8 @@ export class TestingService {
 	private readonly _questionnaire_last_date = '_questionnaire_last_date';
 	private readonly _questionnaire_status = '_questionnaire_status';
 
+	private readonly dayMilliseconds = 8640000;
+
 	public set successResult(action: SuccessAction) {
 		this.setItem(this._success_action_key, JSON.stringify(action));
 	}
@@ -66,7 +68,9 @@ export class TestingService {
 			case QuestionnaireStatus.Untouched:
 				return this.processDataIntoQuestionnaire(this.getData(this.id));
 			case QuestionnaireStatus.Passed:
-				const next = +(new Date() > date);
+				const now = new Date();
+				// const nextDate = new Date(new Date(now.getFullYear(), now.getMonth(), now.getDate()).setDate(now.getDate() + 1));
+				const next = +(now > date);
 				return this.processDataIntoQuestionnaire(this.getData(this.id + next));
 		}
 	}
@@ -78,13 +82,20 @@ export class TestingService {
 	}
 
 	private getData(id: number): IQuestionnaire {
-		return require(`../data/questionnaire${id}.json`);
-		// TODO: handle unexisting files;
-		// TODO: handle passed
+		let data: IQuestionnaire;
+		try {
+			data = require(`../data/questionnaire${id}.json`);
+		} catch (e) {
+			data = null;
+		}
+		return data;
+		// return require(`../data/questionnaire${id}.json`);
+		// // TODO: handle unexisting files;
+		// // TODO: handle passed
 	}
 
 	private processDataIntoQuestionnaire(data: IQuestionnaire): Questionnaire {
-		if (!data) {
+		if (!data || new Date(data.date) > new Date()) {
 			return null;
 		}
 		const q: Questionnaire = new Questionnaire(

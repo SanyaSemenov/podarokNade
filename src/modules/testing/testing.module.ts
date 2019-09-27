@@ -8,6 +8,7 @@ import { TestingContainerComponent } from './components/testing-container/testin
 import { Routes, RouterModule } from '@angular/router';
 import { SuccessTestComponent } from './components/success-test/success-test.component';
 import { TestingService } from './services';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
 	{
@@ -30,6 +31,7 @@ const routes: Routes = [
 	imports: [
 		CommonModule,
 		RouterModule.forChild(routes),
+		FormsModule,
 		MatButtonModule,
 		MatCardModule,
 		MatRadioModule
