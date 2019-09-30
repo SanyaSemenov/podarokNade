@@ -29,6 +29,7 @@
 	],
 	"date": "Sep 27 2019 GMT+0300",
     "successAction": {
+		"id": 2,
         "title": "Congradulations!",
         "type": "Text",
 		"target": "You have successfully passed the test![2]",

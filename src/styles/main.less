@@ -1,17 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import './variables.less';
 
 html,
 body {
 	padding: 0;
-	margin: 0
+	margin: 0;
 }
 
 body {
 	background: #eee;
 }
 
-.d-{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: @clr-main;
+}
+
+.d- {
 	&flex {
 		display: flex;
 	}
@@ -21,7 +31,7 @@ body {
 	}
 }
 
-.justify-content--{
+.justify-content-- {
 	&center {
 		justify-content: center;
 	}
@@ -47,4 +57,29 @@ body {
 			margin-top: 40px;
 		}
 	}
+}
+
+.text-- {
+	&center {
+		text-align: center;
+	}
+}
+
+button {
+	&:focus {
+		background-color: @clr-main;
+	}
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+	border-color: @clr-main;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+	color: @clr-main;
+	background-color: @clr-main;
+}
+
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+	background-color: rgb(@clr-main, 0.26);
 }

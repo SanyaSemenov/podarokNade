@@ -5,7 +5,6 @@
         {
             "question": "How was your day?",
             "rightAnswer": "Nice",
-            "img": "https://sun9-48.userapi.com/c855216/v855216133/fc076/_J7IrFY0Hww.jpg",
             "variants": [
                 "Nice",
                 "Awful"
@@ -23,6 +22,7 @@
 	],
 	"date": "Sep 26 2019 GMT+0300",
     "successAction": {
+		"id": 1,
         "title": "Congradulations!",
         "type": "Text",
 		"target": "You have successfully passed the test!",

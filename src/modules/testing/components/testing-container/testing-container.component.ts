@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TestingService } from '../../services';
-import { Questionnaire, QuestionEntity, SuccessActionType, QuestionnaireStatus, SuccessAction } from '../../models';
-import { IQuestionnaire, IQuestionnaireFull } from '../../models/questionnaire';
+import { QuestionnaireStatus, SuccessAction } from '../../models';
+import { IQuestionnaireFull } from '../../models/questionnaire';
 import { takeUntil } from 'rxjs/operators';
 import { Unsubscriber } from 'src/lib/unsubscribe';
 
@@ -23,7 +23,19 @@ export class TestingContainerComponent extends Unsubscriber implements OnInit {
 	}
 
 	private initTest() {
+		const status = this.testing$.status;
 		this.questionnaire = this.testing$.currentQuestionnaire;
+		const successId = this.testing$.successResult
+			? this.testing$.successResult.id
+			: 0;
+		if (
+			this.questionnaire &&
+			status === QuestionnaireStatus.Passed &&
+			this.questionnaire.successAction.id !== successId
+		) {
+			this.isTestHidden = true;
+			return;
+		}
 		this.isTestHidden = this.testing$.status === QuestionnaireStatus.Passed;
 		if (!this.isTestHidden) {
 			this.questionnaire.onSuccess
