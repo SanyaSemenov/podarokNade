@@ -4,6 +4,7 @@ import { QuestionnaireStatus, SuccessAction } from '../../models';
 import { IQuestionnaireFull } from '../../models/questionnaire';
 import { takeUntil } from 'rxjs/operators';
 import { Unsubscriber } from 'src/lib/unsubscribe';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-testing-container',
@@ -11,15 +12,17 @@ import { Unsubscriber } from 'src/lib/unsubscribe';
 	styleUrls: ['./testing-container.component.less']
 })
 export class TestingContainerComponent extends Unsubscriber implements OnInit {
-	constructor(private testing$: TestingService) {
+	constructor(private testing$: TestingService, private router: Router) {
 		super();
 	}
 	public questionnaire: IQuestionnaireFull;
 	public answer: string;
 	public isTestHidden: boolean = false;
+	public isButtonVisible: boolean = false;
 
 	ngOnInit() {
 		this.initTest();
+		setTimeout(() => this.isButtonVisible = true, 2000);
 	}
 
 	private initTest() {
@@ -56,5 +59,9 @@ export class TestingContainerComponent extends Unsubscriber implements OnInit {
 		}
 		this.questionnaire.checkAnswer(this.answer);
 		this.answer = null;
+	}
+
+	public back() {
+		this.router.navigate(['']);
 	}
 }

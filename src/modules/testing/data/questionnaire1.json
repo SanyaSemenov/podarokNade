@@ -1,31 +1,21 @@
 {
 	"id": 1,
-	"title": "Title",
+	"title": "Всего один вопрос",
 	"questions": [
         {
-            "question": "How was your day?",
-            "rightAnswer": "Nice",
+            "question": "Кого Саша хочет больше?",
+            "rightAnswer": "",
             "variants": [
-                "Nice",
-                "Awful"
-            ]
-        },
-        {
-            "question": "How was your day[2]?",
-            "rightAnswer": "Nice",
-            "img": "https://sun9-48.userapi.com/c855216/v855216133/fc076/_J7IrFY0Hww.jpg",
-            "variants": [
-                "Nice",
-                "Awful"
-            ]
+				"мальчика",
+				"девочку"
+			]
         }
 	],
-	"date": "Sep 26 2019 GMT+0300",
+	"date": "Oct 12 2019 GMT+0300",
     "successAction": {
 		"id": 1,
-        "title": "Congradulations!",
+        "title": "Неправильно!",
         "type": "Text",
-		"target": "You have successfully passed the test!",
-		"img": "https://sun9-48.userapi.com/c855216/v855216133/fc076/_J7IrFY0Hww.jpg"
+		"target": "Саша одинаково был бы рад и мальчику, и девочке :)<br><br>P.s. Загляни в сумку"
     }
 }

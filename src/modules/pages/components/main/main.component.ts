@@ -3,6 +3,7 @@ import { PopupFrame, PopupFramesCollection } from 'src/lib/frames';
 import { fromEvent } from 'rxjs';
 import { takeUntil, throttleTime } from 'rxjs/operators';
 import { Unsubscriber } from 'src/lib/unsubscribe';
+import { Router } from '@angular/router';
 
 const hello = 'Привет, Надя!<br>Мы так рады тебя видеть!';
 const congrads = 'Поздравляем тебя с прошедшим Днем Рождения!';
@@ -18,7 +19,7 @@ const best = 'Ты наш самый любимый человек, и Саша 
 	styleUrls: ['./main.component.less']
 })
 export class MainComponent extends Unsubscriber implements OnInit {
-	constructor() {
+	constructor(private router: Router) {
 		super();
 	}
 
@@ -55,5 +56,9 @@ export class MainComponent extends Unsubscriber implements OnInit {
 			.subscribe(event => {
 				this.isSashaMobile = (event.target as Window).innerWidth < 641;
 			});
+	}
+
+	public getTest() {
+		this.router.navigate(['testing']);
 	}
 }

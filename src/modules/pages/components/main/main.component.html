@@ -1,16 +1,25 @@
 <div class="main">
-	<div
-		class="main__content">
-		<h4
+	<div class="main__content">
+		<!-- <h4
 			class="main__content__text"
 			[class.main__content__text--visible]="dogsFrames.currentIndex > 10">
 			Скоро тебе будет доступно основное ...)
-		</h4>
+		</h4> -->
+		<button
+			class="main__button"
+			[class.main__button--visible]="dogsFrames.currentIndex > 10"
+			mat-button
+			mat-raised-button
+			(click)="getTest()"
+		>
+			Нажми на меня
+		</button>
 	</div>
 	<div class="main__sasha">
 		<sasha-main
 			[framesCollection]="sashaFrames"
-			[isMobile]="isSashaMobile"></sasha-main>
+			[isMobile]="isSashaMobile"
+		></sasha-main>
 	</div>
 	<div class="main__dogs">
 		<dogs-main [framesCollection]="dogsFrames"></dogs-main>

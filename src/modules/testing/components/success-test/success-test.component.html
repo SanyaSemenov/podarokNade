@@ -5,9 +5,11 @@
 				class="success"
 				[class.success--visible]="isSuccessSet"
 			>
-				<mat-card-actions>
+			<h3 class="success__title text--center">{{successAction?.title}}</h3>
+			<h5 class="success__title m-t20" [innerHTML]="successAction?.target"></h5>
+				<!-- <mat-card-actions>
 					<button mat-button></button>
-				</mat-card-actions>
+				</mat-card-actions> -->
 			</mat-card>
 		</div>
 	</div>

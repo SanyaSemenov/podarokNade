@@ -66,8 +66,20 @@ h6 {
 }
 
 button {
-	&:focus {
-		background-color: @clr-main;
+	&.mat-button,
+	&.mat-fab,
+	&.mat-flat-button,
+	&.mat-icon-button,
+	&.mat-mini-fab,
+	&.mat-raised-button,
+	&.mat-stroked-button {
+		font-weight: 400;
+		font-size: 20px;
+		padding: 0 20px;
+		line-height: 50px;
+		&:focus {
+			background-color: @clr-main;
+		}
 	}
 }
 

@@ -6,7 +6,7 @@
 				[class.question--answered]="isQuestionAnswered"
 				[class.question--visible]="isQuestionSet"
 			>
-				<h5 class="question__title">{{ question?.question }}</h5>
+				<h5 class="question__title" [innerHTML]="question?.question"></h5>
 				<div *ngIf="question?.img" class="question__image m-20">
 					<img src="{{ question?.img }}" alt="Photo of a Shiba Inu" />
 				</div>
@@ -31,7 +31,7 @@
 						</mat-radio-group>
 					</div>
 				</mat-card-content>
-				<mat-card-actions class="question__actions">
+				<mat-card-actions *ngIf="question?.variants && question?.variants.length" class="question__actions">
 					<button
 						class="question__btn"
 						[disabled]="!answer"
