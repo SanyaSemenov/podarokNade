@@ -1,0 +1,60 @@
+@import 'variables';
+
+.question {
+	transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+	transform: translateX(50%);
+	opacity: 0;
+
+	&--visible {
+		transform: translateX(0);
+		opacity: 1;
+	}
+
+	&--answered {
+		transform: translateX(-50%);
+		opacity: 0;
+	}
+
+	&__title {
+		margin: 0;
+		font-size: 1.4rem;
+		text-align: center;
+	}
+
+	&__image {
+		max-height: 400px;
+		margin-left: -16px;
+		margin-right: -16px;
+		text-align: center;
+		img {
+			height: auto;
+			width: auto;
+			max-height: 400px;
+			max-width: 100%;
+			margin-left: auto;
+    		margin-right: auto;
+		}
+	}
+
+	&__radio {
+		display: block;
+
+		&__group {
+			display: block;
+		}
+	}
+
+	&__variant {
+		font-size: 20px;
+	}
+
+	&__actions.mat-card-actions:last-child {
+		margin: 0;
+		display: flex;
+		justify-content: center;
+	}
+
+	&__btn {
+		padding: 0 30px;
+	}
+}

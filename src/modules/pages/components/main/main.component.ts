@@ -3,6 +3,7 @@ import { PopupFrame, PopupFramesCollection } from 'src/lib/frames';
 import { fromEvent } from 'rxjs';
 import { takeUntil, throttleTime } from 'rxjs/operators';
 import { Unsubscriber } from 'src/lib/unsubscribe';
+import { Router } from '@angular/router';
 
 const hello = 'Привет, Надя!<br>Мы так рады тебя видеть!';
 const congrads = 'Поздравляем тебя с прошедшим Днем Рождения!';
@@ -18,32 +19,32 @@ const best = 'Ты наш самый любимый человек, и Саша 
 	styleUrls: ['./main.component.less']
 })
 export class MainComponent extends Unsubscriber implements OnInit {
-	constructor() {
+	constructor(private router: Router) {
 		super();
 	}
 
 	public dogsFrames: PopupFramesCollection = new PopupFramesCollection([
-		new PopupFrame(false, false, 100),
-		new PopupFrame(false, false, 400),
-		new PopupFrame(false, true, 200, hello),
-		new PopupFrame(true, true, 500, hello),
-		new PopupFrame(false, true, 100, hello),
-		new PopupFrame(true, true, 500, congrads),
-		new PopupFrame(false, true, 100, congrads),
-		new PopupFrame(true, true, 500, sashaCongrads),
-		new PopupFrame(false, true, 100, sashaCongrads),
-		new PopupFrame(true, true, 500, sashaHopes),
-		new PopupFrame(false, true, 100, sashaHopes),
-		new PopupFrame(true, true, 100, best)
+		new PopupFrame(false, false, 1000),
+		new PopupFrame(false, false, 4000),
+		new PopupFrame(false, true, 2000, hello),
+		new PopupFrame(true, true, 5000, hello),
+		new PopupFrame(false, true, 1000, hello),
+		new PopupFrame(true, true, 5000, congrads),
+		new PopupFrame(false, true, 1000, congrads),
+		new PopupFrame(true, true, 5000, sashaCongrads),
+		new PopupFrame(false, true, 1000, sashaCongrads),
+		new PopupFrame(true, true, 5000, sashaHopes),
+		new PopupFrame(false, true, 1000, sashaHopes),
+		new PopupFrame(true, true, 1000, best)
 	]);
 
 	public isSashaMobile: boolean = false;
 	private readonly sashaText = 'Любить сюда';
 	public sashaFrames: PopupFramesCollection = new PopupFramesCollection([
-		new PopupFrame(false, false, 1900),
-		new PopupFrame(false, true, 100, this.sashaText),
-		new PopupFrame(true, true, 500, this.sashaText),
-		new PopupFrame(false, true, 100, this.sashaText),
+		new PopupFrame(false, false, 19000),
+		new PopupFrame(false, true, 1000, this.sashaText),
+		new PopupFrame(true, true, 5000, this.sashaText),
+		new PopupFrame(false, true, 1000, this.sashaText),
 		new PopupFrame(false, false, 0)
 	]);
 
@@ -51,9 +52,13 @@ export class MainComponent extends Unsubscriber implements OnInit {
 		//   this.switchFrame();
 		this.isSashaMobile = window.innerWidth < 641;
 		fromEvent(window, 'resize')
-			.pipe(takeUntil(this.ngUnsubscribe), throttleTime(300))
+			.pipe(takeUntil(this.ngUnsubscribe), throttleTime(3000))
 			.subscribe(event => {
 				this.isSashaMobile = (event.target as Window).innerWidth < 641;
 			});
+	}
+
+	public getTest() {
+		this.router.navigate(['testing']);
 	}
 }

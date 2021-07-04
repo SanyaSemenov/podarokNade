@@ -1,2 +1,16 @@
 @bp-tablet-up: ~'(min-width: 641px)';
 @bp-desktop-up: ~'(min-width: 1200px)';
+@clr-main: #fa852a;
+
+.visible() {
+	transition: all 0.5s ease-in-out;
+	transform: translateY(5px);
+	visibility: hidden;
+	opacity: 0;
+
+	&--visible {
+		transform: translateY(0);
+		visibility: visible;
+		opacity: 1;
+	}
+}

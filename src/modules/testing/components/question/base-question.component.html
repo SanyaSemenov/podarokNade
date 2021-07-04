@@ -1,1 +1,50 @@
-<p>base-question works!</p>
+<div class="container m-40">
+	<div class="row">
+		<div class="col s12 m8 l6 offset-m2 offset-l3">
+			<mat-card
+				class="question"
+				[class.question--answered]="isQuestionAnswered"
+				[class.question--visible]="isQuestionSet"
+			>
+				<h5 class="question__title" [innerHTML]="question?.question"></h5>
+				<div *ngIf="question?.img" class="question__image m-20">
+					<img src="{{ question?.img }}" alt="Photo of a Shiba Inu" />
+				</div>
+				<mat-card-content class="m-t20">
+					<div
+						class="question__content d-flex justify-content--center"
+					>
+						<mat-radio-group
+							class="question__radio__group"
+							[(ngModel)]="answer"
+							(change)="onAnswer.emit($event.value)"
+						>
+							<mat-radio-button
+								class="question__radio"
+								*ngFor="let variant of question?.variants"
+								[value]="variant"
+							>
+								<span class="question__variant">{{
+									variant
+								}}</span>
+							</mat-radio-button>
+						</mat-radio-group>
+					</div>
+				</mat-card-content>
+				<mat-card-actions *ngIf="question?.variants && question?.variants.length" class="question__actions">
+					<button
+						class="question__btn"
+						[disabled]="!answer"
+						mat-button
+						mat-raised-button
+						(click)="check()"
+					>
+						Да, я уверена
+					</button>
+				</mat-card-actions>
+			</mat-card>
+		</div>
+	</div>
+</div>
+
+<!-- TODO: more styling -->
